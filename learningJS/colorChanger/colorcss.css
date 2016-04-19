@@ -1,0 +1,24 @@
+body{
+	background:#252829;
+}
+
+h1{
+	color:white;
+}
+
+.square{
+	background:white;
+	padding-bottom: 30%;
+	width:30%;
+	float: left;
+	margin:1.66%;
+}
+
+#container{
+	max-width: 600px;
+	margin:0 auto;
+}
+
+#msg{
+	color:white;
+}
