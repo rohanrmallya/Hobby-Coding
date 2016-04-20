@@ -8,7 +8,12 @@ The webpage has 6 square blocks which inherits colors from an array (for now). T
 
 ## What next?
 
-I intend to make the whole process random. The array will finally be an empty array where the RGB values are randomly chosen. By improving the HTML and CSS, I wish to make the webapp more presentable. 3 different playing modes will be added : Easy, Medium and Hard. 
+ By improving the HTML and CSS, I wish to make the webapp more presentable. 3 different playing modes will be added : Easy, Medium and Hard.
+
+## What is implemented?
+
+* Random picking of an element from colors list to be selected color
+* Loading of random colors into color array
 
 ## Disclaimer
 
