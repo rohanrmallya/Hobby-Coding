@@ -15,11 +15,12 @@ colorDisp.textContent = picked;
 
 
 neww.addEventListener("click",function(){
-	genColor();
-	picked=colorPicker();
+	var colors = genColor();
+	var picked=colorPicker();
 	for(i=0;i<square.length;i++){
 		square[i].style.background = colors[i];
 	}
+	return colors,picked;
 });
 
 reset();
