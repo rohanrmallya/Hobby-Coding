@@ -12,18 +12,38 @@ var neww = document.querySelector("#new");
 colorDisp.textContent = picked;
 
 
-
+console.log(colors);
 
 neww.addEventListener("click",function(){
-	var colors = genColor();
-	var picked=colorPicker();
+	colors = genColor();
+	picked = colorPicker();
 	for(i=0;i<square.length;i++){
 		square[i].style.background = colors[i];
 	}
-	return colors,picked;
+	console.log(colors);
+	
 });
 
-reset();
+console.log(colors);
+
+for(var i=0;i<square.length;i++){
+
+	square[i].style.background=colors[i];
+	square[i].addEventListener("click",function(){
+		var clicked = this.style.background;
+		console.log(clicked,picked);
+		if(clicked === picked){
+			msg.textContent="Right";
+			change(picked);
+
+		}
+		else{
+			this.style.background="#252829";
+			msg.textContent="Try Again"
+
+		}
+	});
+}
 
 function change(col){
 	for(var i=0; i<square.length; i++){
@@ -43,32 +63,13 @@ function gen(){
 }
 
 function genColor(){
-	var colors = [];
+	var arr = [];
 	for(i=0; i<7;i++){
 	
 	var col = String(("rgb("+String(gen())+", "+String(gen())+", "+String(gen())+")"));
-	colors.push(col);
+	arr.push(col);
 	}
-	return colors;
+	return arr;
 	console.log(colors);
 }
 
-function reset(){
-	for(var i=0;i<square.length;i++){
-	square[i].style.background=colors[i];
-	square[i].addEventListener("click",function(){
-		var clicked = this.style.background;
-		console.log(clicked,picked);
-		if(clicked === picked){
-			msg.textContent="Right";
-			change(picked);
-
-		}
-		else{
-			this.style.background="#252829";
-			msg.textContent="Try Again"
-
-		}
-	});
-}
-}
