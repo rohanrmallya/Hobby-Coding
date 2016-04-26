@@ -9,32 +9,41 @@ var msg = document.querySelector("#msg");
 var neww = document.querySelector("#new");
 var easy = document.querySelector('#easy');
 var hard = document.querySelector('#hard');
+var heading = document.querySelector("#heading");
+var isHard = true;
+colorDisp.textContent = picked;
 
-for(i=0;i<square.length;i++){
-	square[i].style.opacity = 1;
-}
-
+hard.classList.add("selected");
 easy.addEventListener("click",function(){
 	colors = genColor(3);
 	picked = colorPicker();
+	hard.classList.remove("selected");
+	easy.classList.add("selected");
 	for(i=0;i<square.length;i++){
-		square[i].style.background = colors[i];
+		if(colors[i]){
+			square[i].style.background = colors[i];
+		}
+		else{
+			square[i].style.display = "none";
+		}
 	};
-	for(i=3;i<6;i++){
-		square[i].style.opacity = 0;
-	}
+
+	isHard = false;
+
 	colorDisp.textContent = picked;
+	console.log(colors);   
 });
 
 hard.addEventListener("click",function(){
 	colors = genColor(6);
 	picked = colorPicker();
+	easy.classList.remove("selected");
+	hard.classList.add("selected");
 	for(i=0;i<square.length;i++){
 		square[i].style.background = colors[i];
+		square[i].style.display = "block";
 	};
-	for(i=3;i<6;i++){
-		square[i].style.opacity = 1;
-	};
+	isHard = true;
 	colorDisp.textContent = picked;
 	
 });
@@ -43,50 +52,50 @@ hard.addEventListener("click",function(){
 colorDisp.textContent = picked;
 
 neww.addEventListener("click",function(){
-	if(square[3].style.opacity == 0){
-		colors = genColor(3);
-		picked = colorPicker();
-		for(i=0;i<square.length;i++){
-			square[i].style.background = colors[i];
-		};
-		for(i=3;i<6;i++){
-			square[i].style.opactiy = 0;
-		};
-		colorDisp.textContent = picked;
-	}
-	else{
+	neww.textContent = "New Colors";
+	heading.style.background = "none";
+	msg.textContent=" ";
+	if(isHard){
 		colors = genColor(6);
 		picked = colorPicker();
 		for(i=0;i<square.length;i++){
 			square[i].style.background = colors[i];
-		};
-		for(i=3;i<6;i++){
-			square[i].style.opactiy = 1;
+			square[i].style.display = "block";
 		};
 		colorDisp.textContent = picked;
-
+		isHard = true;
 	}
-	msg.textContent = null;
-	
+	else{
+		colors = genColor(3);
+		picked = colorPicker();
+		for(i=0; i<square.length;i++){
+			if(colors[i]){
+				square[i].style.background = colors[i];
+			}
+			else{
+				square[i].style.display = "none";
+			}
+		};
+		colorDisp.textContent = picked;
+		isHard = false;
+	}
 	
 });
 
 
 
 for(var i=0;i<square.length;i++){
-
 	square[i].style.background=colors[i];
 	square[i].addEventListener("click",function(){
 		var clicked = this.style.background;
+		console.log(clicked,picked);
 		if(clicked === picked){
 			msg.textContent="Right";
 			change(picked);
-
 		}
 		else{
 			this.style.background="#252829";
 			msg.textContent="Try Again"
-
 		}
 	});
 }
@@ -95,12 +104,13 @@ function change(col){
 	for(var i=0; i<square.length; i++){
 		square[i].style.background = col;
 	}
+	heading.style.background= col;
+	neww.textContent = "Play Again?"
 }
 
 function colorPicker(){
 	var num = Math.floor(Math.random()*colors.length);
 	return colors[num];
-
 }
 
 function gen(){
@@ -111,11 +121,10 @@ function gen(){
 function genColor(size){
 	var arr = [];
 	for(i=0; i<size;i++){
-	
 	var col = String(("rgb("+String(gen())+", "+String(gen())+", "+String(gen())+")"));
 	arr.push(col);
 	}
 	return arr;
-	
+	console.log(colors);
 }
 
