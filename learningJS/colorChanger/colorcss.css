@@ -20,5 +20,20 @@ h1{
 }
 
 #msg{
-	color:white;
+	color:black;
+
 }
+
+#stripe{
+	background:white;
+	height:30px;
+	text-align: center;
+	width:100%;
+}
+
+.selected{
+	background: black;
+	color:white;
+
+}
+
