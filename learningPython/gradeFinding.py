@@ -2,16 +2,18 @@
 #Test will be 40% of 100%.
 #Take ESA marks and store it in a variable ESA.
 #ESA Should be 60% of the 100%.
-
 def countResult():
-    t1 = float(input("Enter your T1 Marks "))
-    t2 = float(input("Enter your T2 marks "))
-    proj = float(input("Marks expected for project "))
-    att = float(input("Marks expected for attendence "))
-    fin = float(input("Marks for finals "))
+    t1 = int(input("Enter your T1 Marks "))
+    t2 = int(input("Enter your T2 marks "))
+    proj = int(input("Marks expected for project "))
+    att = int(input("Marks expected for attendence "))
+    fin = int(input("Marks for finals "))
     isa = 40*(t1+t2+proj+att)/100
+    isaFin = 100*isa/90
     esa = 60*fin/100
-    tot = isa+esa
+    tot = isaFin+esa
+    global total
+    total.append(tot)
     print("Your total marks are "+ str(tot))
 
     if tot in range(85,101):
@@ -30,10 +32,10 @@ def countResult():
         print("You got an F grade")
 
 def kitnaScore():
-    t1 = float(input("Enter your T1 Marks "))
-    t2 = float(input("Enter your T2 marks "))
-    proj = float(input("Marks expected for project "))
-    att = float(input("Marks expected for attendence "))
+    t1 = int(input("Enter your T1 Marks "))
+    t2 = int(input("Enter your T2 marks "))
+    proj = int(input("Marks expected for project "))
+    att = int(input("Marks expected for attendence "))
     isa = 40*(t1+t2+proj+att)/100
     expGrade = str(input("Enter the grade you are expecting"))
     if(expGrade == "s" or expGrade == "S"):
@@ -76,6 +78,3 @@ for i in range(0,number):
     subName = str(input("Enter the name of the subject "))
     print(subName)
     countResult()
-
-
-
