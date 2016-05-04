@@ -2,6 +2,7 @@
 #Test will be 40% of 100%.
 #Take ESA marks and store it in a variable ESA.
 #ESA Should be 60% of the 100%.
+
 def countResult():
     t1 = int(input("Enter your T1 Marks "))
     t2 = int(input("Enter your T2 marks "))
@@ -32,10 +33,10 @@ def countResult():
         print("You got an F grade")
 
 def kitnaScore():
-    t1 = int(input("Enter your T1 Marks "))
-    t2 = int(input("Enter your T2 marks "))
-    proj = int(input("Marks expected for project "))
-    att = int(input("Marks expected for attendence "))
+    t1 = float(input("Enter your T1 Marks "))
+    t2 = float(input("Enter your T2 marks "))
+    proj = float(input("Marks expected for project "))
+    att = float(input("Marks expected for attendence "))
     isaInit = 40*(t1+t2+proj+att)/100
     isa = 100*isaInit/90
     expGrade = str(input("Enter the grade you are expecting"))
@@ -68,15 +69,27 @@ def kitnaScore():
         fin = esa*100/60
         print("You have to get "+str(fin)+" marks in ESA")
     
-    
-opt = str(input("Do you want to know how much you should score to get which grade? (Y/N)"))
-while(opt == "Y"):
-    kitnaScore()
-    opt = str(input("Do you want to repeat this?"))
 
-number = int(input("Enter the number of subjects "))
-for i in range(0,number):
-    subName = str(input("Enter the name of the subject "))
-    print(subName)
-    countResult()
-  
+flag = 1
+while flag:
+    opt = str(input('If you want to know what grade you will get for given marks, type M. \n If you want to know what ESA marks you have to get for a given grade type G\n 0 to exit\n'))
+    if(opt == 'M' or opt=='m'):
+        intflag = 1
+        while intflag:
+            number = int(input("Enter the number of subjects "))
+            for i in range(0,number):
+                subName = str(input("Enter the name of the subject "))
+                print(subName)
+                countResult()
+            intflag = int(input("Press 1 to repeat, 0 to exit"))
+    elif(opt == 'G' or opt == 'g'):
+        intflag1 = 1
+        while intflag1:
+            kitnaScore()
+            intflag1 = int(input("Press 1 to repeat, 0 to exit"))
+    elif(opt == '0'):
+        break;
+    else:
+        print("The Input is incorrect") 
+        
+
