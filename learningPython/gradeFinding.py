@@ -36,7 +36,8 @@ def kitnaScore():
     t2 = int(input("Enter your T2 marks "))
     proj = int(input("Marks expected for project "))
     att = int(input("Marks expected for attendence "))
-    isa = 40*(t1+t2+proj+att)/100
+    isaInit = 40*(t1+t2+proj+att)/100
+    isa = 100*isaInit/90
     expGrade = str(input("Enter the grade you are expecting"))
     if(expGrade == "s" or expGrade == "S"):
         esa = 85-isa
@@ -78,3 +79,4 @@ for i in range(0,number):
     subName = str(input("Enter the name of the subject "))
     print(subName)
     countResult()
+  
