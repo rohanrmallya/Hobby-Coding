@@ -4,11 +4,11 @@
 #ESA Should be 60% of the 100%.
 
 def countResult():
-    t1 = int(input("Enter your T1 Marks "))
-    t2 = int(input("Enter your T2 marks "))
-    proj = int(input("Marks expected for project "))
-    att = int(input("Marks expected for attendence "))
-    fin = int(input("Marks for finals "))
+    t1 = float(input("Enter your T1 Marks "))
+    t2 = float(input("Enter your T2 marks "))
+    proj = float(input("Marks expected for project "))
+    att = float(input("Marks expected for attendence "))
+    fin = float(input("Marks for finals "))
     isa = 40*(t1+t2+proj+att)/100
     esa = 60*fin/100
     tot = isa+esa
@@ -30,10 +30,10 @@ def countResult():
         print("You got an F grade")
 
 def kitnaScore():
-    t1 = int(input("Enter your T1 Marks "))
-    t2 = int(input("Enter your T2 marks "))
-    proj = int(input("Marks expected for project "))
-    att = int(input("Marks expected for attendence "))
+    t1 = float(input("Enter your T1 Marks "))
+    t2 = float(input("Enter your T2 marks "))
+    proj = float(input("Marks expected for project "))
+    att = float(input("Marks expected for attendence "))
     isa = 40*(t1+t2+proj+att)/100
     expGrade = str(input("Enter the grade you are expecting"))
     if(expGrade == "s" or expGrade == "S"):
