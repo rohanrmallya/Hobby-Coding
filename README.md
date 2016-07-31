@@ -12,6 +12,10 @@ A collection of super-basic, easy to understand entry level Python programs whic
 
 Scripts interacting with Twitter API
 
+### Reddit
+
+Scripts interacting with Reddit API demonstarting use of PRAW
+
 ### Disclaimer
 
 <i> I am a rookie in programming and I am learning from scratch. Many people are involved in teaching me and the programs written here are not necessarily the best way to implement. There can be shorter methods which can save lines of code, but since I am just in the beginning stage of learning any programming language I prefer to do it the longer way. 
